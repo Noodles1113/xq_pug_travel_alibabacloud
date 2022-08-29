@@ -1,0 +1,7 @@
+#GET http://localhost:8011/user/getUser
+#Accept: application/json
+
+###
+GET http://localhost:8012/order/makeOrder
+Accept: application/json
+
