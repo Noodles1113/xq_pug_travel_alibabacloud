@@ -10,12 +10,18 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.Map;
 
 @RestController
+// 配置文件实时刷新
+@RefreshScope
 @RequestMapping("/user")
 public class UserController {
 
+    @Value("${uname}")
+    private String uname;
+
     @GetMapping("/getUser")
     public String getUser() {
-        return "success!!!";
+//        return "success!!!";
+        return uname;
     }
 
 }

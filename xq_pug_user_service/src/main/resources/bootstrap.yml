@@ -4,12 +4,20 @@ server:
 spring:
   application:
     name: xq_pug_user_service
+  profiles:
+    active: dev
   cloud:
     nacos:
       discovery:
         # 服务的注册与发现 默认是true
         enabled: true
         server-addr: 127.0.0.1:8848
+      config:
+        server-addr: 127.0.0.1:8848
+        prefix: ${spring.application.name}
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: bacf16e4-2abf-46dd-b8d0-dd96105b4d23
 
 # 暴露监控断点，给后续的Admin进行监控处理
 # 获取单独访问http://localhost:8011/actuator
