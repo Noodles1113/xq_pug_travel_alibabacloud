@@ -17,6 +17,11 @@ public class OrderController {
     public String makeOrder() {
         // 远程调用获取用服务
         return restTemplate.getForObject("http://localhost:8011/user/getUser", String.class);
-//         return restTemplate.getForObject("http://xq_pug_user_service/user/getUser", String.class);
+    }
+
+    @GetMapping("/makeOrder2")
+    public String makeOrder2() {
+        // 远程调用获取用服务
+         return restTemplate.getForObject("http://xq-pug-user-service/user/getUser2", String.class);
     }
 }

@@ -1,3 +1,11 @@
+GET http://localhost:8012//config/rabbitmq
+Accept: application/json
+
+###
+GET http://localhost:8011/config/redis
+Accept: application/json
+
+###
 GET http://localhost:8011/user/getUser
 Accept: application/json
 
@@ -5,3 +13,6 @@ Accept: application/json
 GET http://localhost:8012/order/makeOrder
 Accept: application/json
 
+###
+GET http://localhost:8012/order/makeOrder2
+Accept: application/json

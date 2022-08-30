@@ -11,14 +11,13 @@ import org.springframework.web.client.RestTemplate;
 @EnableDiscoveryClient
 public class OrderServerApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(OrderServerApplication.class);
-    }
-
-//    @LoadBalanced
-//    该注释是用于负载均衡，访问时不能用ip要使用服务名，否则无法访问
+    @LoadBalanced
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
+    }
+
+    public static void main(String[] args) {
+        SpringApplication.run(OrderServerApplication.class);
     }
 }

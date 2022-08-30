@@ -18,10 +18,17 @@ public class UserController {
     @Value("${uname}")
     private String uname;
 
+    @Value("${server.port}")
+    private String port;
+
     @GetMapping("/getUser")
     public String getUser() {
-//        return "success!!!";
         return uname;
+    }
+
+    @GetMapping("/getUser2")
+    public String getUser2() {
+        return "port: " + port;
     }
 
 }
