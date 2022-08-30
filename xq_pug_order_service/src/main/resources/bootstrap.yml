@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: xq_pug_order_service
+    name: xq-pug-order-service
   cloud:
     nacos:
       discovery:
