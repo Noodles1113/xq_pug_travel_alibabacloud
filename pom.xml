@@ -9,7 +9,6 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>xq_pug_user_service</module>
-        <module>xq_pug_user_service</module>
         <module>xq_pug_order_service</module>
     </modules>
 
@@ -40,8 +39,6 @@
        所以：这里的依赖必须是非常通用的依赖，否则不要随意添加.
      -->
     <dependencies>
-        <!-- lombok 工具通过在代码编译时期动态的将注解替换为具体的代码,
-        IDEA 需要添加 lombok 插件 -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>

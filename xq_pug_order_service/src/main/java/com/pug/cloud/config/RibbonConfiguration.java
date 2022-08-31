@@ -1,5 +1,6 @@
 package com.pug.cloud.config;
 
+import com.pug.cloud.loadbalancer.NacosClusterNameRule;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
 import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClients;
@@ -23,6 +24,8 @@ class UserRandomLoadbalancerConfig {
         // 拿到你要处理的服务实列 其实也就是：xq-pug-user-service
         String name = environment.getProperty(LoadBalancerClientFactory.PROPERTY_NAME);
         // 你选择什么样子的策略来执行你的服务 RandomLoadBalancer 选择随机
-        return new RandomLoadBalancer(loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);
+//        return new RandomLoadBalancer(loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);
+        // 自定义负载均衡方式
+        return new NacosClusterNameRule(loadBalancerClientFactory.getLazyProvider(name, ServiceInstanceListSupplier.class), name);
     }
 }
