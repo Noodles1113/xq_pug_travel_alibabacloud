@@ -55,6 +55,7 @@ public class NacosClusterNameRule extends RoundRobinLoadBalancer {
     }
 
     private Response<ServiceInstance> getInstanceResponse(List<ServiceInstance> instances, Request request) {
+
         try {
             if (instances.isEmpty()) {
                 if (log.isWarnEnabled()) {
@@ -86,26 +87,22 @@ public class NacosClusterNameRule extends RoundRobinLoadBalancer {
                 chooseIntances = sameClusterInstances;
                 log.info("当前实例是：clusterName:{},serviceId:{} ，集群调用", currentClusterName, serviceId);
             }
-            if (!CollectionUtils.isEmpty(selectInstances)) {
-                // 5: 不论是同城还是跨城按照权重进行返回的
-                Instance selectInstance = ExpandBalancer.getHostByRandomWeightChoose(chooseIntances);
-                // 6: 把按照权重选择的selectInstance放入到nacos的服务实例中返回
-                NacosServiceInstance nacosServiceInstance = new NacosServiceInstance();
-                nacosServiceInstance.setHost(selectInstance.getIp());
-                nacosServiceInstance.setServiceId(selectInstance.getServiceName());
-                nacosServiceInstance.setPort(selectInstance.getPort());
-                nacosServiceInstance.setMetadata(selectInstance.getMetadata());
-                log.info("基于权重的负载均衡，服务名：{}，端口：{}", selectInstance.getServiceName(), selectInstance.getPort());
-                return new DefaultResponse(nacosServiceInstance);
-            } else {
-                // 轮询做底
-                return super.choose(request).block();
-            }
+            // 5: 不论是同城还是跨城按照权重进行返回的
+            Instance selectInstance = ExpandBalancer.getHostByRandomWeightChoose(chooseIntances);
+            // 6: 把按照权重选择的selectInstance放入到nacos的服务实例中返回
+            NacosServiceInstance nacosServiceInstance = new NacosServiceInstance();
+            nacosServiceInstance.setHost(selectInstance.getIp());
+            nacosServiceInstance.setServiceId(selectInstance.getServiceName());
+            nacosServiceInstance.setPort(selectInstance.getPort());
+            nacosServiceInstance.setMetadata(selectInstance.getMetadata());
+            log.info("基于权重的负载均衡，服务名：{}，端口：{}", selectInstance.getServiceName(), selectInstance.getPort());
+            return new DefaultResponse(nacosServiceInstance);
         } catch (NacosException e) {
             log.error("服务实例找不到了");
             return null;
         }
     }
+
 }
 
 class ExpandBalancer extends Balancer {
