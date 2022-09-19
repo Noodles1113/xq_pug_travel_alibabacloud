@@ -13,14 +13,20 @@ spring:
         # 服务的注册与发现 默认是true
         enabled: true
         server-addr: 127.0.0.1:8848
+        #home
         namespace: bacf16e4-2abf-46dd-b8d0-dd96105b4d23
+        #work
+        #namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
         cluster-name: SH
       config:
         server-addr: 127.0.0.1:8848
         prefix: ${spring.application.name}
         file-extension: yaml
         group: DEFAULT_GROUP
+        #home
         namespace: bacf16e4-2abf-46dd-b8d0-dd96105b4d23
+        #work
+        #namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
         shared-configs[0]:
           data_id: redis.yaml
           group: COMMON_GROUP
