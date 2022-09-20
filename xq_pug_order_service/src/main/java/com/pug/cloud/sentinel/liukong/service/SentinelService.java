@@ -1,4 +1,4 @@
-package com.pug.cloud.sentinel.service;
+package com.pug.cloud.sentinel.liukong.service;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import org.springframework.stereotype.Service;

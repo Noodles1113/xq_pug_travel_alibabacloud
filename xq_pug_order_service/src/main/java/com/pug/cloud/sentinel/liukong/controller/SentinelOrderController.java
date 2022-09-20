@@ -1,6 +1,6 @@
-package com.pug.cloud.sentinel.controller;
+package com.pug.cloud.sentinel.liukong.controller;
 
-import com.pug.cloud.sentinel.service.SentinelService;
+import com.pug.cloud.sentinel.liukong.service.SentinelService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
