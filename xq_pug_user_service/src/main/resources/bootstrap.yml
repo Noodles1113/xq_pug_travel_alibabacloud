@@ -14,9 +14,9 @@ spring:
         enabled: true
         server-addr: 127.0.0.1:8848
         #home
-        namespace: bacf16e4-2abf-46dd-b8d0-dd96105b4d23
+        #namespace: bacf16e4-2abf-46dd-b8d0-dd96105b4d23
         #work
-        #namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
+        namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
         cluster-name: SH
       config:
         server-addr: 127.0.0.1:8848
@@ -24,9 +24,9 @@ spring:
         file-extension: yaml
         group: DEFAULT_GROUP
         #home
-        namespace: bacf16e4-2abf-46dd-b8d0-dd96105b4d23
+        #namespace: bacf16e4-2abf-46dd-b8d0-dd96105b4d23
         #work
-        #namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
+        namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
         shared-configs[0]:
           data_id: redis.yaml
           group: COMMON_GROUP
@@ -35,6 +35,11 @@ spring:
           data_id: rabbitmq.yaml
           group: COMMON_GROUP
           refresh: true
+    sentinel:
+      enabled: true
+      transport:
+        # 指定sentinel的服务地址
+        dashboard: 127.0.0.1:8080
 
 # 暴露监控断点，给后续的Admin进行监控处理
 # 获取单独访问http://localhost:8011/actuator

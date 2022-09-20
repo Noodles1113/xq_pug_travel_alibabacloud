@@ -1,4 +1,4 @@
-GET http://localhost:8012//config/rabbitmq
+GET http://localhost:8012/config/rabbitmq
 Accept: application/json
 
 ###
