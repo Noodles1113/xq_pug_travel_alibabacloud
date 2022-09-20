@@ -37,6 +37,7 @@ spring:
       transport:
         # 指定sentinel的服务地址
         dashboard: 127.0.0.1:8080
+      web-context-unify: false # 关闭context整合
 
 # 暴露监控断点，给后续的Admin进行监控处理
 # 获取单独访问http://localhost:8011/actuator
