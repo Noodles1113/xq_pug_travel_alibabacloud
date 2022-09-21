@@ -15,7 +15,7 @@ public class UserServiceFeignFallback implements UserServiceFeign {
     public User saveUser(User user) {
         User user1 = new User();
         user1.setUserId(-1000L);
-        user1.setUsername("客官，你慢点点 fallback");
+        user1.setUsername("fallback提示");
         return  user1;
     }
 
@@ -28,7 +28,7 @@ public class UserServiceFeignFallback implements UserServiceFeign {
     public User getUserInfo(Long userId) {
         User user1 = new User();
         user1.setUserId(-1000L);
-        user1.setUsername("客官，你慢点点 fallback");
+        user1.setUsername("fallback提示");
         return  user1;
     }
 }
