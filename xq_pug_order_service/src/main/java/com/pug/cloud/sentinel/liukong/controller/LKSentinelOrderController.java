@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 // query1关联
 // query2链路
 @RestController
-public class SentinelOrderController {
+public class LKSentinelOrderController {
 
     @Autowired
     private SentinelService sentinelService;

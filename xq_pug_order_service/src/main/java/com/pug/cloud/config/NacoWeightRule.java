@@ -2,12 +2,12 @@ package com.pug.cloud.config;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
 import com.alibaba.cloud.nacos.NacosServiceInstance;
-import com.alibaba.cloud.nacos.ribbon.NacosServer;
+//import com.alibaba.cloud.nacos.ribbon.NacosServer;
 import com.alibaba.nacos.api.naming.NamingService;
 import com.alibaba.nacos.api.naming.pojo.Instance;
 import com.alibaba.nacos.client.naming.NacosNamingService;
 import com.alibaba.nacos.common.utils.CollectionUtils;
-import com.alibaba.nacos.common.utils.MapUtil;
+//import com.alibaba.nacos.common.utils.MapUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.ObjectProvider;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,11 +16,11 @@ import org.springframework.cloud.client.loadbalancer.*;
 import org.springframework.cloud.loadbalancer.core.NoopServiceInstanceListSupplier;
 import org.springframework.cloud.loadbalancer.core.RoundRobinLoadBalancer;
 import org.springframework.cloud.loadbalancer.core.ServiceInstanceListSupplier;
-import org.springframework.http.HttpHeaders;
-import org.springframework.stereotype.Component;
+//import org.springframework.http.HttpHeaders;
+//import org.springframework.stereotype.Component;
 import reactor.core.publisher.Mono;
 import java.util.List;
-import java.util.Map;
+//import java.util.Map;
 
 @Slf4j
 public class NacoWeightRule extends RoundRobinLoadBalancer {

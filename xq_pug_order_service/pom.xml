@@ -17,6 +17,12 @@
     </properties>
 
     <dependencies>
+        <!--契约工程-->
+        <dependency>
+            <groupId>com.pug.cloud</groupId>
+            <artifactId>xq_pug_contract</artifactId>
+            <version>1.0-SNAPSHOT</version>
+        </dependency>
         <!--web依赖-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

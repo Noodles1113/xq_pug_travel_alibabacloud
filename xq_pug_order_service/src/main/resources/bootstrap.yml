@@ -46,3 +46,34 @@ management:
     web:
       exposure:
         include: '*'
+
+feign:
+  compression:
+    request:
+      enabled: false #请求压缩
+      min-request-size: 2048 # 最小请求长度
+      mime-types: text/xml,application/xml,application/json # 压缩的类型
+    response:
+      useGzipDecoder: false
+      enabled: true # 响应压缩
+  sentinel:
+    enabled: true
+  client:
+    config:
+      # 全局配置
+      default:
+        # 建立连接所用的时间，单位是：毫秒
+        connectTimeout: 5000
+        # 建立连接后从服务器读取到资源所用的时间 单位是：毫秒
+        readTimeout: 5000
+      # 为xq-pug-user-service用户服务配置
+      xq-pug-user-service:
+        # 建立连接所用的时间，单位是：毫秒
+        connectTimeout: 1000
+        # 建立连接后从服务器读取到资源所用的时间 单位是：毫秒
+        readTimeout: 1000
+
+# 日志配置
+logging:
+  level:
+    com.pug.cloud.feign: debug

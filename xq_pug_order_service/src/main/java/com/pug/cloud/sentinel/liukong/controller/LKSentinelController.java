@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 // 直接
 @RestController
-public class SentinelController {
+public class LKSentinelController {
 
     @GetMapping("/testA")
     public String testA(String a, String b) {
