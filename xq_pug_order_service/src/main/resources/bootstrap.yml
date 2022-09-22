@@ -63,8 +63,8 @@ feign:
         connectTimeout: 1000
         # 建立连接后从服务器读取到资源所用的时间 单位是：毫秒
         readTimeout: 1000
-
-# 日志配置
-logging:
-  level:
-    com.pug.cloud.feign: debug
+        logger-level: basic
+  httpclient:
+    enabled: true # 开启feign对HttpClient的支持
+    max-connections: 200 # 最大的连接数
+    max-connections-per-route: 50 # 每个路径的最大连接数
