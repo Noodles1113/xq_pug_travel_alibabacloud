@@ -1,5 +1,7 @@
 package com.pug.cloud;
 
+import com.pug.cloud.fegin.UserFeginIntercetor;
+import feign.RequestInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -17,6 +19,11 @@ public class OrderServerApplication {
     @Bean
     public RestTemplate restTemplate() {
         return new RestTemplate();
+    }
+
+    @Bean
+    public RequestInterceptor requestInterceptor() {
+        return new UserFeginIntercetor();
     }
 
     public static void main(String[] args) {

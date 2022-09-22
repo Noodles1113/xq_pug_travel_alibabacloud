@@ -5,6 +5,8 @@ spring:
   application:
     # 注意：这里的服务名不能使用_，否则负载均衡会找不到服务
     name: xq-pug-user-service
+  profiles:
+    active: dev
   cloud:
     nacos:
       discovery:
@@ -15,6 +17,7 @@ spring:
         namespace: 2430074e-2696-45e8-b993-75073da3c7ef
         #work
         #namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
+        cluster-name: SH
       config:
         server-addr: 127.0.0.1:8848
         prefix: ${spring.application.name}
@@ -24,6 +27,14 @@ spring:
         namespace: 2430074e-2696-45e8-b993-75073da3c7ef
         #work
         #namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
+        shared-configs[0]:
+          data_id: redis.yaml
+          group: COMMON_GROUP
+          refresh: true
+        shared-configs[1]:
+          data_id: rabbitmq.yaml
+          group: COMMON_GROUP
+          refresh: true
     sentinel:
       enabled: true
       transport:

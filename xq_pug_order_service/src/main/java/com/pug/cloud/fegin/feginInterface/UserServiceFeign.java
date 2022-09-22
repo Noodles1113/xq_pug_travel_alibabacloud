@@ -1,6 +1,8 @@
-package com.pug.cloud.fegin;
+package com.pug.cloud.fegin.feginInterface;
 
 import com.pug.cloud.domain.User;
+import com.pug.cloud.fegin.FeignLoggerConfiguration;
+import com.pug.cloud.fegin.UserServiceFeignFallback;
 import com.pug.cloud.service.IUserContract;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -42,7 +42,12 @@ public class UserController implements IUserContract {
     @Override
     @PostMapping("/save")
     public User saveUser(@RequestBody User user) {
-        return null;
+        User user1 = new User();
+        user1.setUserId(10189L);
+        user1.setUsername("yykk");
+        user1.setPassword("123456");
+        user1.setAddress("湖南长沙");
+        return user1;
     }
 
     /**
@@ -54,7 +59,7 @@ public class UserController implements IUserContract {
     @Override
     @GetMapping("/get/{id}")
     public User getUserInfo(@PathVariable("id") Long userId) {
-        log.info("用户服务");
+        log.info("调用用户服务");
         if (userId == 1L) {
             try {
                 Thread.sleep(2000);

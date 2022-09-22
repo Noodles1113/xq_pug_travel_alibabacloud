@@ -1,6 +1,7 @@
 package com.pug.cloud.fegin;
 
 import com.pug.cloud.domain.User;
+import com.pug.cloud.fegin.feginInterface.UserServiceFeign;
 import org.springframework.stereotype.Component;
 
 @Component
