@@ -1,4 +1,4 @@
-package com.pug.cloud.sentinel.liukong.redian.controller;
+package com.pug.cloud.sentinel.redian.controller;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.alibaba.csp.sentinel.slots.block.BlockException;
