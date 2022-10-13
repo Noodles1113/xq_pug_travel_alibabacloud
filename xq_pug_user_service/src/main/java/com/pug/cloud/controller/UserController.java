@@ -25,7 +25,7 @@ public class UserController implements IUserContract {
 
     @GetMapping("/getUser")
     public String getUser() {
-        return uname;
+        return "uname:" + uname;
     }
 
     @GetMapping("/getUser2")
