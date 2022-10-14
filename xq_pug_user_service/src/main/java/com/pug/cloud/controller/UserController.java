@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 
 @Slf4j
@@ -73,6 +75,25 @@ public class UserController implements IUserContract {
         user.setPassword("123456");
         user.setAddress("湖南长沙");
         return user;
+    }
+
+    @Override
+    @GetMapping("/getUserInfoList")
+    public List<User> getUserInfoList(User user) {
+        List<User> userList = new ArrayList<>();
+        User user1 = new User();
+        user1.setUserId(100L);
+        user1.setUsername("yykk");
+        user1.setPassword("123456");
+        user1.setAddress("湖南长沙");
+        userList.add(user1);
+        User user2 = new User();
+        user2.setUserId(200L);
+        user2.setUsername("kkyy");
+        user2.setPassword("123456");
+        user2.setAddress("湖南长沙");
+        userList.add(user2);
+        return userList;
     }
 
 }

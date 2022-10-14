@@ -2,6 +2,8 @@ package com.pug.cloud.service;
 
 import com.pug.cloud.domain.User;
 
+import java.util.List;
+
 public interface IUserContract {
 
 
@@ -9,6 +11,8 @@ public interface IUserContract {
 
 
     User getUserInfo(Long userId);
+
+    List<User> getUserInfoList(User user);
 
 
 }
