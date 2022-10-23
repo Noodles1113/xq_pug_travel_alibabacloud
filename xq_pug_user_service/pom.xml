@@ -53,7 +53,7 @@
             <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
 
-        <!--这个加载服务中的boostrap.yml让其生效-->
+        <!--这个加载服务中的bootstrap.yml让其生效-->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>

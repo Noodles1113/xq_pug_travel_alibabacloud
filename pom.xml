@@ -11,6 +11,7 @@
         <module>xq_pug_user_service</module>
         <module>xq_pug_order_service</module>
         <module>xq_pug_contract</module>
+        <module>xq_pug_gateway</module>
     </modules>
 
     <packaging>pom</packaging>
