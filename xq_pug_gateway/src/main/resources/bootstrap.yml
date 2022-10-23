@@ -20,6 +20,15 @@ spring:
         locator:
           # 让gateway通过服务组件找到其他的微服务
           enabled: true
+      routes:
+        - id: user-route
+          uri: lb://xq-pug-user-service
+          predicates:
+            - Path=/user/**
+        - id: order-route
+          uri: lb://xq-pug-order-service
+          predicates:
+            - Path=/user/**
 
 # 暴露监控断点，给后续的Admin进行监控处理
 # 获取单独访问 http://localhost:port/actuator/gateway/routes
