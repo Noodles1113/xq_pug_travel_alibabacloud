@@ -25,12 +25,12 @@ spring:
           uri: lb://xq-pug-user-service
           predicates:
             - Path=/user/**
-          filters:
-            - AddRequestHeader=token,123456
+            - MyLimiter=0,1000
+            - MyMethod=GET
         - id: order-route
           uri: lb://xq-pug-order-service
           predicates:
-            - Path=/order/**
+            - Path=/user/**
 
 # 暴露监控断点，给后续的Admin进行监控处理
 # 获取单独访问 http://localhost:port/actuator/gateway/routes
