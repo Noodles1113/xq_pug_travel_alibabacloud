@@ -25,6 +25,7 @@ spring:
           uri: lb://xq-pug-user-service
           predicates:
             - Path=/user/**
+            - MyLimiter=0,1000
         - id: order-route
           uri: lb://xq-pug-order-service
           predicates:
