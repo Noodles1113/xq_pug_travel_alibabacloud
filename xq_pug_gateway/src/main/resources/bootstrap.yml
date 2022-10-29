@@ -16,6 +16,16 @@ spring:
         #work
         namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
     gateway:
+      # 配置跨域
+      globalcors:
+        cors-configurations:
+          # 这里在开发环境允许/**。但是在生产环境一定要冷静
+          '[/**]':
+            max-age: 3600
+            allow-credentials: true
+            allowedOrigins: "*" # 允许的来源，允许* 表示所有
+            allowedHeaders: "*" # 允许的请求头，允许* 表示所有
+            allowedMethods: "*" # 允许的请求方式，允许* 表示所有
       discovery:
         locator:
           # 让gateway通过服务组件找到其他的微服务
