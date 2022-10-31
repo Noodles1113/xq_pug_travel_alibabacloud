@@ -16,6 +16,11 @@ spring:
         #work
         namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
     gateway:
+      httpclient:
+        #建立连接所用的时间，单位是毫秒
+        connect-timeout: 5000
+        #建立连接后从服务器读取到可用资源所用的时间，
+        response-timeout: 4s
       # 配置跨域
       globalcors:
         cors-configurations:
@@ -37,6 +42,16 @@ spring:
             - Path=/user/**
           filters:
             - AddRequestHeader=token,123456
+            #配置限流
+            - name: RequestRateLimiter
+              # 限流的参数
+              args:
+                # 令牌桶每秒填充平均速率
+                redis-rate-limiter.replenishRate: 1
+                # 令牌桶的上限
+                redis-rate-limiter.burstCapacity: 2
+                # 使用SpEL表达式从Spring容器中获取Bean对象
+                key-resolver: "#{@ipKeyResolver}"
         - id: order-route
           uri: lb://xq-pug-order-service
           predicates:
