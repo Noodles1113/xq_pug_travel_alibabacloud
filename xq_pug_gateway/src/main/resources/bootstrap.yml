@@ -21,16 +21,6 @@ spring:
         connect-timeout: 5000
         #建立连接后从服务器读取到可用资源所用的时间，
         response-timeout: 4s
-      # 配置跨域
-      globalcors:
-        cors-configurations:
-          # 这里在开发环境允许/**。但是在生产环境一定要冷静
-          '[/**]':
-            max-age: 3600
-            allow-credentials: true
-            allowedOrigins: "*" # 允许的来源，允许* 表示所有
-            allowedHeaders: "*" # 允许的请求头，允许* 表示所有
-            allowedMethods: "*" # 允许的请求方式，允许* 表示所有
       discovery:
         locator:
           # 让gateway通过服务组件找到其他的微服务
@@ -40,18 +30,8 @@ spring:
           uri: lb://xq-pug-user-service
           predicates:
             - Path=/user/**
-          filters:
-            - AddRequestHeader=token,123456
-            #配置限流
-#            - name: RequestRateLimiter
-#              # 限流的参数
-#              args:
-#                # 令牌桶每秒填充平均速率
-#                redis-rate-limiter.replenishRate: 1
-#                # 令牌桶的上限
-#                redis-rate-limiter.burstCapacity: 2
-#                # 使用SpEL表达式从Spring容器中获取Bean对象
-#                key-resolver: "#{@ipKeyResolver}"
+#          filters:
+#            - AddRequestHeader=token,123456
         - id: order-route
           uri: lb://xq-pug-order-service
           predicates:
