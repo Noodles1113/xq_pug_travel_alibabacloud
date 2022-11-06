@@ -12,9 +12,9 @@ spring:
         # 单机版本
         server-addr: 127.0.0.1:8848
         #home
-        #namespace: 2430074e-2696-45e8-b993-75073da3c7ef
+        namespace: 2430074e-2696-45e8-b993-75073da3c7ef
         #work
-        namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
+        #namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
     gateway:
       httpclient:
         #建立连接所用的时间，单位是毫秒
@@ -43,15 +43,15 @@ spring:
           filters:
             - AddRequestHeader=token,123456
             #配置限流
-            - name: RequestRateLimiter
-              # 限流的参数
-              args:
-                # 令牌桶每秒填充平均速率
-                redis-rate-limiter.replenishRate: 1
-                # 令牌桶的上限
-                redis-rate-limiter.burstCapacity: 2
-                # 使用SpEL表达式从Spring容器中获取Bean对象
-                key-resolver: "#{@ipKeyResolver}"
+#            - name: RequestRateLimiter
+#              # 限流的参数
+#              args:
+#                # 令牌桶每秒填充平均速率
+#                redis-rate-limiter.replenishRate: 1
+#                # 令牌桶的上限
+#                redis-rate-limiter.burstCapacity: 2
+#                # 使用SpEL表达式从Spring容器中获取Bean对象
+#                key-resolver: "#{@ipKeyResolver}"
         - id: order-route
           uri: lb://xq-pug-order-service
           predicates:
