@@ -44,11 +44,9 @@ public class MyLimiterRoutePredicateFactory extends AbstractRoutePredicateFactor
                 // 得到请求参数的用户id：/user/get/1
                 RequestPath path = request.getPath();
                 String paramUserId = path.pathWithinApplication().elements().get(5).value();
-                if (null != paramUserId) {
-                    Long numberId = Long.parseLong(paramUserId);
-                    if (numberId >= config.getMinId() && numberId <= config.getMaxId()) {
-                        return true;
-                    }
+                Long numberId = Long.parseLong(paramUserId);
+                if (numberId >= config.getMinId() && numberId <= config.getMaxId()) {
+                    return true;
                 }
                 return false;
             }

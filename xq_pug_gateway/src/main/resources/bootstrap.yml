@@ -30,8 +30,11 @@ spring:
           uri: lb://xq-pug-user-service
           predicates:
             - Path=/user/**
-#          filters:
-#            - AddRequestHeader=token,123456
+#            - MyLimiter=0,1000
+#            - MyMethod=GET
+          filters:
+#            - PrefixPath 如果访问的每一个接口都有一个通用的前缀可以考虑使用PrefixPath来定义
+            - AddRequestHeader=token,123456
         - id: order-route
           uri: lb://xq-pug-order-service
           predicates:
