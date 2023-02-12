@@ -80,7 +80,9 @@ public class UserController implements IUserContract {
     @Override
     @GetMapping("/getUserInfoList")
     public List<User> getUserInfoList(User user) {
+        log.info("调用用户服务列表");
         List<User> userList = new ArrayList<>();
+        userList.add(user);
         User user1 = new User();
         user1.setUserId(100L);
         user1.setUsername("yykk");

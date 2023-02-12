@@ -26,14 +26,14 @@ public class OrderDetailController {
         return userServiceFeign.getUserInfo(userId);
     }
 
-    @GetMapping("/getUserInfoList/userId")
+    @GetMapping("/getUserInfoList/{userId}")
     public List<User> getUserInfoList(@PathVariable("userId") Long userId) {
         log.info("采用fegin方式-getList-调用其他服务");
         User user = new User();
         user.setUserId(userId);
-        user.setAddress("上海");
+        user.setAddress("新加坡");
         user.setUsername("happy");
-        user.setPassword("123456");
+        user.setPassword("10086");
         return userServiceFeign.getUserInfoList(user);
     }
 }
