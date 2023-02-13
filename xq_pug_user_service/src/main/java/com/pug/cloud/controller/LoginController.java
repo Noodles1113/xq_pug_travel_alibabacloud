@@ -26,8 +26,8 @@ public class LoginController {
     public LoginResponseDto login(@RequestBody UserLoginVo userLoginVo) {
         User user = new User();
         user.setUserId(10000L);
-        user.setUsername("yykk");
-        user.setPassword("123456");
+        user.setUsername(userLoginVo.getNickname());
+        user.setPassword(userLoginVo.getPassword());
         user.setAddress("湖南长沙");
         user.setRole("admin");
         // 创建token
