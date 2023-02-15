@@ -1,5 +1,6 @@
 package com.pug.cloud.controller.fegin;
 
+import com.pug.cloud.auth.CheckLogin;
 import com.pug.cloud.domain.User;
 import com.pug.cloud.fegin.feginInterface.UserServiceFeign;
 import lombok.extern.slf4j.Slf4j;
@@ -21,6 +22,7 @@ public class OrderDetailController {
     private UserServiceFeign userServiceFeign;
 
     @GetMapping("/detail/{userId}")
+    @CheckLogin
     public User getUserInfo(@PathVariable("userId") Long userId) {
         log.info("采用fegin方式调用其他服务");
         return userServiceFeign.getUserInfo(userId);

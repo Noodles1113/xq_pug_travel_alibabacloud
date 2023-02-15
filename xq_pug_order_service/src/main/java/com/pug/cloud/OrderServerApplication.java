@@ -1,6 +1,6 @@
 package com.pug.cloud;
 
-import com.pug.cloud.fegin.UserFeginIntercetor;
+import com.pug.cloud.fegin.UserFeginInterceptor;
 import feign.RequestInterceptor;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -23,7 +23,7 @@ public class OrderServerApplication {
 
     @Bean
     public RequestInterceptor requestInterceptor() {
-        return new UserFeginIntercetor();
+        return new UserFeginInterceptor();
     }
 
     public static void main(String[] args) {

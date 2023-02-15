@@ -59,6 +59,8 @@ feign:
         readTimeout: 5000
       # 为xq-pug-user-service用户服务配置
       xq-pug-user-service:
+        requestInterceptors:
+          - com.pug.cloud.feign.UserFeginInterceptor
         # 建立连接所用的时间，单位是：毫秒
         connectTimeout: 1000
         # 建立连接后从服务器读取到资源所用的时间 单位是：毫秒
