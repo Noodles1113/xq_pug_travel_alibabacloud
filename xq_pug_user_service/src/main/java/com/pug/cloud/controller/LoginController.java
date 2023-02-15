@@ -1,5 +1,6 @@
 package com.pug.cloud.controller;
 
+import com.pug.cloud.auth.CheckLogin;
 import com.pug.cloud.domain.User;
 import com.pug.dto.login.JwtTokenDto;
 import com.pug.dto.login.LoginResponseDto;
@@ -8,10 +9,7 @@ import com.pug.cloud.service.JwtOperatorService;
 import com.pug.vo.login.UserLoginVo;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 @RestController

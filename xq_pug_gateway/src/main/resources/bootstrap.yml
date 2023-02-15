@@ -16,11 +16,11 @@ spring:
         #work
         #namespace: 281a0bfd-0734-4c05-abbd-b84042af732a
     gateway:
-      httpclient:
-        #建立连接所用的时间，单位是毫秒
-        connect-timeout: 5000
-        #建立连接后从服务器读取到可用资源所用的时间，
-        response-timeout: 4s
+#      httpclient:
+#        #建立连接所用的时间，单位是毫秒
+#        connect-timeout: 5000
+#        #建立连接后从服务器读取到可用资源所用的时间，
+#        response-timeout: 4s
       discovery:
         locator:
           # 让gateway通过服务组件找到其他的微服务
@@ -32,7 +32,7 @@ spring:
             - Path=/user/**
 #            - MyLimiter=0,1000
 #            - MyMethod=GET
-          filters:
+#          filters:
 #            - PrefixPath 如果访问的每一个接口都有一个通用的前缀可以考虑使用PrefixPath来定义
 #            - AddRequestHeader=token,123456
         - id: order-route

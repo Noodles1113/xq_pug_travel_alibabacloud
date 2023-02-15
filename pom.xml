@@ -44,6 +44,10 @@
             <artifactId>lombok</artifactId>
             <version>1.18.22</version>
         </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
     </dependencies>
     <!--
         项目依赖管理 父项目只是声明依赖，父工程不会去下载，只是管理

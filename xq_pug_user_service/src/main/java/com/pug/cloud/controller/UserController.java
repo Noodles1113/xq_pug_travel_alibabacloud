@@ -1,6 +1,7 @@
 package com.pug.cloud.controller;
 
 import com.alibaba.cloud.nacos.NacosDiscoveryProperties;
+import com.pug.cloud.auth.CheckLogin;
 import com.pug.cloud.domain.User;
 import com.pug.cloud.service.IUserContract;
 import lombok.extern.slf4j.Slf4j;
@@ -60,6 +61,7 @@ public class UserController implements IUserContract {
      */
     @Override
     @GetMapping("/get/{id}")
+    @CheckLogin
     public User getUserInfo(@PathVariable("id") Long userId) {
         log.info("调用用户服务");
         if (userId == 1L) {
