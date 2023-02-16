@@ -64,7 +64,7 @@ public class UserController implements IUserContract {
     @CheckLogin
     public User getUserInfo(@PathVariable("id") Long userId) {
         log.info("调用用户服务");
-        if (userId == 1L) {
+        if (userId == 10086L) {
             try {
                 Thread.sleep(2000);
             } catch (Exception ex) {

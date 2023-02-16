@@ -59,8 +59,9 @@ feign:
         readTimeout: 5000
       # 为xq-pug-user-service用户服务配置
       xq-pug-user-service:
-        requestInterceptors:
-          - com.pug.cloud.feign.UserFeginInterceptor
+# 现在遇到的问题是自定义拦截器后貌似变成了全局的拦截器，如果再对单独的服务设置拦截器时会造成拦截器被执行了两次
+#        requestInterceptors:
+#          - com.pug.cloud.fegin.UserFeginInterceptor
         # 建立连接所用的时间，单位是：毫秒
         connectTimeout: 1000
         # 建立连接后从服务器读取到资源所用的时间 单位是：毫秒
